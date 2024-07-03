@@ -1,0 +1,362 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Delycious </title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+        <meta name="viewport" content="width =device-width,initial-scale=1" >
+        <script src="https://kit.fontawesome.com/f8ccb01bef.js" crossorigin="anonymous"></script> <!--this is my kit to use the icon on fontawesome website-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header">
+            <a href=" " class="logo" id="logo" > <img src="Images/logo.jpg"> </a>
+            <!--<div class="banner-text">
+                <h1> Delycious</h1>
+                <p> Ein Genuss In Jedem Moment</p>
+                
+            </div>-->
+         
+            <nav class="navbar">
+                <ul>
+                    <li> <a class="active" href="index.html"> HOME</a> </li> 
+                    <li class="has-sousnav"> <a href="produts.html"> Cakes <i class="fas fa-caret-down"></i></a>
+                    <ul class="sousnav">
+                        <li> <a href="#cakes">Gateaux a Themes </a ></li> 
+                        <li> <a href="#"> oven cake </a> </li>
+                        <li> <a href="#"> Cupcakes </a> </li>  
+                    </ul> </li> 
+                    <li><a href="fritures.html"> Fritures</a> </li> 
+                    <li class="has-sousnav"> <a href="#"> SERVICE <i class="fas fa-caret-down"></i></a >
+                        <ul class="sousnav">
+                            <li> <a href="#"> Photographie</a ></li> 
+                            <li> <a href="#"> Decoration </a> </li> 
+                        </ul> </li> 
+                    <li> <a href="about.html"> About us</a> </li> 
+                    <li><a href="contact.html"> CONTACT</a> </li> 
+                    <li><a href="testimonial.html  "> TESTIMONIALS</a> </li> 
+                </ul>
+
+            </nav>
+        <div class="icons">
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i> </div>
+            <div class="cart-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+                   <span class="quantity"> 0 </span> </div>  
+          
+            <div class="user"> 
+              <a href="login.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i> </a> 
+              
+           </div>  
+           <div class="menu" id="menu">
+            <img src="Images/menu.png" id="imgMenu" alt="">
+           <!--  <h3> Menu</h3>-->
+        </div>
+        </div>
+      <div class="search-from">
+        <input type="search"
+         name="search"
+          id="search-box"
+          placeholder="chercher ici ......"
+          />
+        <label for="search-box" class="fa-solid fa-magnifying-glass"> </label>
+      </div>
+<!-- the shopping cart begins here-->
+<!--items first-->
+    <div class="cart-items-container">
+        <h1> The Shopping cart </h1>
+        <ul class="listcart">
+
+        </ul>
+        <div class="checkout">
+            <div class="total"> 0</div>
+        </div>
+        
+    
+    
+
+       <a href="" class="btn"> Order Now</a>
+    </div>
+     
+    <!-- the shopping cart ends here-->          
+    </header>
+    <div class="contains"> 
+    <div class="carousel next">
+        <div class="list">
+           <!-- <section class="home" id="home">
+       
+                <div class="hero".>
+                    <h3>DE<span>LY</span>CIOUS</h3>
+                    <p style="font-size: 15px; color: black; font-style: italic;"> LIVRAISON PARTOUT DANS LE RNN </p>
+                    <p> Le meilleur de La patisserie Livre chez vous. Un delice a chaque instant pour vos papilles gust nuatives , L  lla sapiente dolore praesentium explic
+                        abo deleniti illum optio error.</p>
+                    <a class="btn" href="#cakes"> Decouvrir </a>
+                </div> 
+        
+        
+            </section>--> 
+
+
+            <div class="item" id="slide1">
+                <div class="img" ><img src="images/chocolate cake.jpg"> </div>
+                
+                <div class="content">
+                    <div id="name"> Donuts  </div>
+                        <div id="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora deserunt, quas nobis sunt facilis porro veritatis quos voluptas pariatur ratione facere,
+                             culpa animi in quisquam suscipit debitis quidem voluptatum voluptate.</div>
+                    <div class="buttons">
+                        <button> Order</button>
+                        <button> See more</button>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <!--item 2 for the carousel-->
+            <div class="item" id="slide2">
+                <div class="img"> <img src="images/samo.jpg"> </div>
+                <div class="content">
+                    <div id="name"> Nems  </div>
+                        <div id="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora deserunt, quas nobis sunt facilis porro veritatis quos voluptas pariatur ratione facere,
+                             culpa animi in quisquam suscipit debitis quidem voluptatum voluptate.</div>
+                    <div class="buttons">
+                        <button> Order</button>
+                        <button> See more</button>
+                    </div>
+                   
+                </div>
+            </div>
+            <!--item 3 for the carousel-->
+            <div class="item" id="slide3">
+                <div class="img"><img src="images/layercake-removebg-preview.png"> </div>
+                <div class="content">
+                    <div id="name"> Cupcake  </div>
+                        <div id="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora deserunt, quas nobis sunt facilis porro veritatis quos voluptas pariatur ratione facere,
+                             culpa animi in quisquam suscipit debitis quidem voluptatum voluptate.</div>
+                    <div class="buttons">
+                        <button> Order</button>
+                        <button> en voir plus</button>
+                    </div>
+                   
+                </div>
+            </div>
+           </div>
+
+
+        <!-- fleches-->
+        <div class="slidenav">
+            <a href="#slide1"></a>
+            <a href="#slide2"></a>
+            <a href="#slide3"></a>
+        </div>
+    </div>
+  
+    <section class="section-cakes" id="cakes">
+        <h3 class="title">Our <span> Cakes</span></h3>
+        <div class="wrapper">
+
+            <div class="cake-card" data-id="1" data-name="Produit 1" data-price="20">
+                <img src="Images/birthday cake.jpg" alt="">
+                <h3> Gateaux D'anniversaire</h3>
+                <div class="price"> 50$</div>
+                <a href="" class="btn" class="add-to-cart"> Ajouter au Panier</a>
+            </div>
+
+            <!--item2-->
+            <div class="cake-card" data-id="2" data-name="Produit 2" data-price="20">
+                <img src="Images/bento_cakes.jpeg" alt="">
+                <h3> Anniversary Cake</h3>
+                <div class="price"> 50$</div>
+                <a href="" class="btn" class="add-to-cart"> Ajouter au Panier</a>
+            </div>
+
+            <!--item3-->
+            <div class="cake-card" data-id="3" data-name="Produit 3" data-price="300">
+                <img src="Images/cake2.jpg" alt="">
+                <h3> Gateaux D'anniversaire</h3>
+                <div class="price"> 50$</div>
+                <button  class="btn" class="add-to-cart"> Ajouter au Panier</button>
+            </div>
+            <!--item4-->
+            <div class="cake-card" data-id="4" data-name="Produit 4" data-price="400">
+                <img src="Images/forets_noire.jpg" alt="">
+                <h3> Forets noire </h3>
+                <div class="price"> 50$</div>
+                <a href="" class="add-to-cart" class="btn"> Ajouter au Panier</a>
+            </div>
+              <!--item5-->
+              <div class="cake-card" data-id="5" data-name="Produit 5" data-price="550">
+                <img src="Images/fraisiers.webp" alt="">
+                <h3> Fraisier </h3>
+                <div class="price"> 50$</div>
+                <a href="" class="add-to-cart" class="btn"> Ajouter au Panier</a>
+            </div>
+              <!--item6-->
+              <div class="cake-card" data-id="6" data-name="Produit 6" data-price="6000">
+                <img src="Images/fuits_cake.webp" alt="">
+                <h3> Gateau aux fruits </h3>
+                <div class="price"> 50$</div>
+                <a href="" class="add-to-cart" class="btn"> Ajouter au Panier</a>
+            </div>
+
+        </div>
+    </section>
+
+     <!-- banner -->
+     <div class="banner">
+        <div class="content">
+            <h3> DeLYCIOUs For You</h3>
+            <p> Lorem ipsum dolor sit amet, elit. Voluptas praesentium officia pariatur fugiat magni voluptates quo aliquam culpa libero odio! Repelrum incidunt accusantium a ducimus dolorum.
+                </p>
+                <div id="btnorder"> <button> Commander </button></div>
+        </div>
+        <div class="img">
+            <img src="images/banner.jpg" alt="">
+        </div>
+    </div>
+
+<!--la deuxieme partie du home section commence ici--> 
+</section>
+<section class="section-cakes" id="cakes">
+    <h3 class="title">Amuses <span>  Bouches</span></h3>
+    <div class="wrapper">
+
+        <div class="cake-card">
+            <img src="Images/birthday cake.jpg" alt="">
+            <h3> Gateaux D'anniversaire</h3>
+            <div class="price"> 50$</div>
+            <a href="" class="btn"> Ajouter au Panier</a>
+        </div>
+
+        <!--item2-->
+        <div class="cake-card">
+            <img src="Images/bento_cakes.jpeg" alt="">
+            <h3> Gateaux D'anniversaire</h3>
+            <div class="price"> 50$</div>
+            <a href="" class="btn"> Ajouter au Panier</a>
+        </div>
+
+        <!--item3-->
+        <div class="cake-card">
+            <img src="Images/cake2.jpg" alt="">
+            <h3> Gateaux D'anniversaire</h3>
+            <div class="price"> 50$</div>
+            <a href="" class="btn"> Ajouter au Panier</a>
+        </div>
+        <!--item4-->
+        <div class="cake-card">
+            <img src="Images/forets_noire.jpg" alt="">
+            <h3> Forets noire </h3>
+            <div class="price"> 50$</div>
+            <a href="" class="btn"> Ajouter au Panier</a>
+        </div>
+          <!--item5-->
+          <div class="cake-card">
+            <img src="Images/fraisiers.webp" alt="">
+            <h3> Fraisier </h3>
+            <div class="price"> 50$</div>
+            <a href="" class="btn"> Ajouter au Panier</a>
+        </div>
+          <!--item6-->
+          <div class="cake-card">
+            <img src="Images/fuits_cake.webp" alt="">
+            <h3> Gateau aux fruits </h3>
+            <div class="price"> 50$</div>
+            <a href="" class="btn"> Ajouter au Panier</a>
+        </div>
+
+    </div>
+</section>
+
+     <!--about section begins here--> 
+    <section class="about" id="about">
+        <h1 class="title"><span> A Propos</span></h1>
+        <div class="container">
+            <div class="img">
+                <img src="Images/personne.jpg" alt="">
+            </div>
+            <div class="content">
+                <h43> Pourquoi sommes nous differents</h43>
+                <p> 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi distinctio nostrum aliquid excepturi mollitia, modi facilis doloribus rem numquam eius ipsa labore quos dolorum 
+                    consectetur quo fugiat dignissimos itaque possimus.
+                </p>
+
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum itaque necessitatibus eos iste libero ullam dolores fugit, aspernatur incidunt dolore, 
+                    fuga autem sequi adipisci asperiores iure dolorem voluptatum voluptas cum.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--contact form-->
+    <div  id="contact">
+        <h1> CONTACTER NOUS</h1>
+        <div class="forms"> 
+        <div class="form-group">
+            <label for="usr">Nom</label>
+            <input type="text" class="form-control" id="usr" placeholder="NOM"/><br><br>
+        </div> 
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email"/> <br> <br>
+            </div>
+            <div class="form-group">
+                <label for="phone">Numero de Telephone</label>
+                <input type="number" class="form-control" id="phone" placeholder="Telephone"/>
+            </div>
+
+       
+        <div class="form-group">
+            <textarea class="form-control" rows="5" id="comment" placeholder="Parlez Nous"> </textarea>
+        </div>
+    </div>
+        <div id="messagebtn">
+            <input type="submit" value="Envoye">
+        </div>
+    </div>
+
+      <!-- footer section-->
+      <footer id="footer">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social_icons">
+            <li><a href="#"><ion-icon name="logo-facebook"></ion-icon> </a></li>
+            <li><a href="#"><ion-icon name="logo-instagram"></ion-icon> </a></li>
+            <li><a href="#"><ion-icon name="logo-snapchat"></ion-icon> </a></li>
+        </ul>
+        <ul class="foot_menu">
+            <li> <a class="active" href="index.html"> HOME</a> </li> 
+            <li class="has-sousnav"> <a href="produts.html"> Gateaux <i class="fas fa-caret-down"></i></a> </li> 
+            <li><a href="fritures.html"> Fritures</a> </li> 
+            <li class="has-sousnav"> <a href="#"> SERVICE <i class="fas fa-caret-down"></i></a ></li> 
+            <li> <a href="about.html"> A props de moi</a> </li> 
+            <li><a href="contact.html"> CONTACT</a> </li> 
+            <li><a href="testimonial.html  "> TESTIMONIALS</a> </li> 
+        </ul>
+        <p> @2024 Delycious | All Rights Reserved</p>
+            
+           
+            <div class="footer-bot">
+                <p> sandstrasse36 bingen am rhein, allemagne<i class="fa fa-map-marker"></i></p>
+           
+           
+        </div>
+</footer>
+<!-- i usedc ionicons for the icons of the footer, i actually just wanted to use diverse icons source, so i tried this one and it is pretty cool as well-->
+<!-- so this is the installation kit for the ionicons-->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</div>
+
+    <script src="script.js"> </script>
+  
+
+    </body>
+</html>

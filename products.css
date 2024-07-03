@@ -1,0 +1,197 @@
+*{
+
+}
+.header{
+    -webkit-backdrop-filter: blur(15px); /* assure la compatibilité avec safari */
+    backdrop-filter: blur(15px); 
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.5rem  7% ; /*the first ont is the padding of the top and bottom and the second one fot left 
+    and right rem=route element*/
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 16vh;
+    transition: 0.3s;
+    z-index: 1000;
+}
+.header .logo img{
+    height: 10rem;
+    border-radius: 50%;
+    width: 70px
+}
+.header .navbar{ 
+    position: sticky;
+    top: 0;
+    left:0;
+    font-weight:700;
+}
+.header .navbar ul{
+    display:flex;
+    list-style: none;
+}
+.header .navbar li  a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1a1a1a;
+    display: block;
+    font-size: 1.0rem;
+    margin: 0 1rem ;
+    transition: 0.3s ease;
+    
+}
+ 
+.header .navbar li a:hover {
+    color: var(--hover-color);
+    border-top: 0.3rem solid var(--hover-color);
+    border-bottom: 0.3rem solid var(--hover-color);
+    padding-top: 0.5 rem;
+    padding-bottom: 0.5 rem;
+    border-radius: 4px;
+}
+.header .navbar ul li .active{
+    color:#088178;
+}
+.header .navbar li a:hover .active::after{
+    content:"" ;
+    width: 30%;
+    height: 2px;
+    background:#088178 ;
+    position: absolute;
+    bottom: -4px;
+    left:20px;
+    color:#088178,;
+}
+.header .navbar .sousnav{
+    list-style: none;
+    display: none;
+    position: absolute; 
+    top: 100%;
+    left: 0;
+    width: max-content;
+
+}
+.header .navbar .sousnav ul{
+    display: block;
+    margin: 10px;
+
+}
+.header .navbar .sousnav ul li{
+   width: 10px;
+   padding-bottom: 20px;
+  
+
+
+}
+.header .navbar .sousnav ul li a{
+    gap: 1rem; 
+
+}
+.header .navbar .has-sousnav{
+    position: relative;
+}
+.header .navbar .has-sousnav:hover .sousnav{
+    display:block;
+}
+.header .navbar .has-sousnav:hover .sousnav ul li{
+     
+    
+}
+
+ 
+#mobile{
+    display: flex;
+    align-items: center;
+}
+#mobile i{
+color: var(--text-color);
+font-size: 24px;
+padding-left: 20px;
+}
+#close{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--text-color)
+}
+.header .icons{
+    display: flex;
+    margin-left: 30px;
+    
+}
+.header .icons div{
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    transition: 0.5s ease;
+}
+.header #imgMenu{
+    width: 30px;
+}
+.menu{
+    display: none;
+}
+.header .icons div:hover{
+    color: black;
+    transform: translateY(-5px);
+}
+ 
+/*search box*/
+.header .search-from{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:95%;
+    right:-250px;/*i do this because i don't want the search box to be seen at the beginning but just when i click on the
+    search icon*/
+    width:25rem;
+    border : solid 1px black;
+    height: 3.5rem;
+    background-color: #fff;
+    
+}
+ 
+.header .search-from input{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    text-transform: none;
+
+}
+.header .search-from label{
+    font-size:2rem;
+    color: var(--black);
+    padding-right: 1.3rem;
+    cursor:pointer;
+
+}
+.header .search-from label:hover{
+    color:var(--main_color);
+}
+
+body{
+    margin-top: 400px;
+}
+.listproduct{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap: 1.5rem;
+   
+    margin-top: 20px;
+
+}
+.item{
+    background-color: var(--card-color);
+    padding:  3rem 2rem;
+    text-align: center;
+    transform-origin: top center;
+}
+img{
+    width: 100%;
+}

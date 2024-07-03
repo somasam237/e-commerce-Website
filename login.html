@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html  lang="fr">
+    <head>
+        <title> Login </title>
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+        <meta name="viewport" content="width =device-width,initial-scale=1" >
+        <script src="https://kit.fontawesome.com/f8ccb01bef.js" crossorigin="anonymous"></script> <!--this is my kit to use the icon on fontawesome website-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="register"> 
+        <form id="RegisterForm" action="signup.php" method="POST">
+            
+            <div class="imgcontainer">
+                <img src="Images/logo.jpg" alt="logo" class="logo">
+
+            </div>
+
+            <div class="container">
+                <label for="Uname"><b> Username</b></label>
+                <input id="username" type="text" placeholder="Entrer votre Nom d'utilisateur" name="username" required>
+                
+                <label for="email"><b>Please enter your email adress</b></label>
+                <input id="email" type="email" placeholder="email adress" name="email" required>
+                <label for="psw"><b>Password</b></label>
+                <input id="pass" type="password" placeholder="Entrer le Mot de Passe" name="password" required>
+                
+                <label for="secpsw"><b>Repeter le Password</b></label>
+                <input id="username" type="password" placeholder="Entrer encore le Mot de Passe" name="secpassword" required>
+                
+               
+            
+                <button type="submit">sign up</button>
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Se souvenir de moi
+                  </label>
+
+                  <p> ENn creeant un comnpte vous accepter nos conditions d'utilisation</p>
+            </div>
+            <div class="container" style="background-color: #f1f1f1;">
+        <a href="index.html"> <button type="button" class="cancelbtn"> Annule</button> </a>
+        <span class="psw"> Mot de Passe <a href="#"> oublie?</a></span>
+     </div>
+        </form>
+    </div>
+        <script src="login.js"></script>
+    
+    </body>
+</html>
