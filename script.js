@@ -1,201 +1,69 @@
 // i want the first video on the carousel to beginn at minut 52
-document.getElementById("homeVideo").currentTime =62;
-const searchIcon = document.querySelector(".search-icon")
-const searchForm = document.querySelector(".search-from")
-/*searchIcon.addEventListener( "click",() => 
-    {  if(searchIcon.computedStyleMap.)
-        searchForm.classList.add("active"); 
-});*/
-
-searchForm.style.right ="-250px";
-searchIcon.onclick = function(){
-    if(searchForm.style.right=="-250px"){
-        searchForm.style.right="0";
-    }
-    else{
-        searchForm.style.right = "-250px";
-    }
-}
-/* the code javscript for the carousel at the home page*/
-
-const carousel = document.querySelector(".carousel ");
-const items = document.querySelector(".carousel .list .item");
-const totalItems = items.length;
-let index = 0;
-const interval = 1000;
-function showNext(){
-    index = (index +1)% totalItems;
-    carousel.scrollTo({
-        left:index* carousel.clientWidth, behavior: "smooth"
-    });
+const homeVideo = document.getElementById("homeVideo");
+if (homeVideo) {
+    homeVideo.currentTime = 62;
 }
 
-setInterval(showNext, interval);
- 
-// when clicking on the carticon it shall appear!
-const cartIcon = document.querySelector(".cart-icon")
-//const cartItemsContainer = document.querySelector(".cart-items-container")
-let quantity = document.querySelector('.total');
-let body = document.querySelector('body');
-let listcart = document.querySelector('.listcart');
-let total = document.querySelector('.total');
-let list = document.querySelector('.cart-items-container');
+const searchIcon = document.querySelector(".search-icon");
+const searchForm = document.querySelector(".search-from");
 
-//The following line of code to make sure that the script execute once the DOM HAS completely charged
- 
-    const cart = [];
-    const cartCount = document.querySelector('.quantity');
-    const cartItemsContainer = document.querySelector('.cart-items-container');
-    const totalAmoutElement = document.querySelector('.total');
-    cartIcon.onclick = function(){
-        if(cartItemsContainer.style.right=="-500px"){
-            cartItemsContainer.style.right="0px";
+// Only run search functionality if elements exist
+if (searchIcon && searchForm) {
+    searchForm.style.right = "-250px";
+    searchIcon.onclick = function(){
+        if(searchForm.style.right == "-250px"){
+            searchForm.style.right = "0";
         }
         else{
-            cartItemsContainer.style.right="-500px";
+            searchForm.style.right = "-250px";
         }
-     }
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', () => {
-            const productElement = button.parentElement;
-            const productId = productElement.getAttribute('data-id');
-            const productName = productElement.getAttribute('data-name');
-            const productPrice = parseFloat(productElement.getAttribute('data-price'));
-
-            const product = {
-                id: productId,
-                name: productName,
-                price: productPrice,
-                quantity: 1
-            };
-
-            addToCart(product);
-        });
-    });
-
-    function addToCart(product) {
-        const existingProduct = cart.find(item => item.id === product.id);
-        if (existingProduct) {
-            existingProduct.quantity++;
-        } else {
-            cart.push({ ...product, quantity: 1 });
-            //cart.push(product);
-        }
-        updateCartUI();
     }
-
-    function updateCartUI() {
-        cartCountElement.textContent = cart.reduce((total, product) => total + product.quantity, 0);
-        cartItemsContainer.innerHTML = '';
-        cart.forEach(product => {
-            const cartItemElement = document.createElement('li');
-            cartItemElement.textContent = `${product.name} - ${product.quantity} x ${product.price}€`;
-            cartItemsContainer.appendChild(cartItemElement);
-        });
-        totalAmoutElement.textContent = cart.reduce((total, product) => total + product.quantity * product.price, 0).toFixed(2);
-    }
-
-
-
-
-
-
-
-
-
-
-
- /* to add an item in the cart */
- /*let products = [
-    {id: 1,
-        name: 'prduct',
-        image: ' ',
-        price: 123
-},
-{id: 1,
-    name: 'prduct',
-    image: ' ',
-    price: 123
-},
-{id: 1,
-    name: 'prduct',
-    image: ' ',
-    price: 123
-},
-{id: 1,
-    name: 'prduct',
-    image: ' ',
-    price: 123
-}
-]
-
-let listcarts = [];
-
-function initApp(){
-    products.forEach((value, key) => {
-        let newdiv = document.createElement('div');
-        newdiv.classList.add('item');
-        newdiv.innerHTML ='<img src="image/${value.image}"/>  <div class= "title">${value.name} </div> <div class= "price">${value.price.toLocaleString()} </div> <button onclick="addToCard(${key})"> AJouter aux Panier</button>';
-        list.appenchild(newdiv);
-    })
 }
 
-initApp();
-function addToCard(key){
-    if(listcarts[key] == null){
-        listcarts[key] = products[key];
-        listcarts[key].quantity = 1;
-    }
-    reloadcard();
-}
-function reloadcard(){
-    listcart.innerHTML = '';
-    let count = 0;
-    let totalPrice = 0;
-    listcarts.forEach((value, key) => {
-        totalPrice += value.price;
-        count = count +value.quantity;
-        if(value != null){
-            let newdiv = document.createElement('li');
-            newdiv.innerHTML='<div> <img src="image/${value.image}"/> </div> <div> ${value.image} </div>    <div>${value.name}  </div> <div>${value.price.toLocaleString()} </div>   <div>${value.quantity}</div> <div> <button onclick="changeQuantity(${key}, ${value.quantity -1})">  '
-        }
-    })
-    total.innerText = totalPrice.toLocaleString();
-    quantity.innerText = count;
-}
- 
- /*
-cartIcon.addEventListener( "click",() => 
-    {cartItemsContainer.classList.add("active");
+/* the code javscript for the carousel at the home page*/
+const carousel = document.querySelector(".carousel");
+const items = document.querySelector(".carousel .list .item");
+
+// Only run carousel if elements exist
+if (carousel && items) {
+    const totalItems = items.length;
+    let index = 0;
+    const interval = 1000;
     
-})
-cartIcon.addEventListener( "unclick",() => 
-{ cartItemsContainer.classList.remove("active");  });
+    function showNext(){
+        index = (index + 1) % totalItems;
+        carousel.scrollTo({
+            left: index * carousel.clientWidth, 
+            behavior: "smooth"
+        });
+    }
+    
+    setInterval(showNext, interval);
+}
 
-const bar= document.getElementById('bar');
-const nav = document.getElementById('navbar');
-if(bar){
-    bar.addEventListener('click', () =>{
-        nav.classList.add('active');
-    })
-}*/
 /*for the resppnsive part, i need that when the user click on the menu icon, 
 it showcase the navbar*/
 const menuIcon = document.getElementById("imgMenu");
-const navbar= document.querySelector(".navbar");
-const contenu= document.querySelector(".contains");
-menuIcon.onclick= function(){
-    if(navbar.style.display=="none"){
-        navbar.style.display="grid";
+const navbar = document.querySelector(".navbar");
+const contenu = document.querySelector(".contains");
+
+// Only run mobile menu if elements exist
+if (menuIcon && navbar) {
+    menuIcon.onclick = function(){
+        if(navbar.style.display == "none"){
+            navbar.style.display = "grid";
+        }
+        else{
+            navbar.style.display = "none";
+        }
     }
-    else{
-        navbar.style.display="none";
-    }
-   
 }
-contenu.onclick= function(){
-    if ( navbar.style.display=="grid"){
-        navbar.style.display="none";
+
+if (contenu && navbar) {
+    contenu.onclick = function(){
+        if (navbar.style.display == "grid"){
+            navbar.style.display = "none";
+        }
     }
 }
 
@@ -210,6 +78,12 @@ class ShoppingCart {
         this.cartCount = document.querySelector(".quantity");
         this.closeCartBtn = document.querySelector(".close-cart");
         this.clearCartBtn = document.querySelector(".clear-cart");
+        
+        // Check if required elements exist
+        if (!this.cartIcon || !this.cartContainer || !this.cartList || !this.cartTotal || !this.cartCount) {
+            console.error('Cart elements not found in DOM');
+            return;
+        }
         
         this.init();
     }
@@ -247,10 +121,20 @@ class ShoppingCart {
 
     addToCart(button) {
         const productElement = button.closest('.cake-card');
+        if (!productElement) {
+            console.error('Product element not found');
+            return;
+        }
+
         const productId = productElement.getAttribute('data-id');
         const productName = productElement.getAttribute('data-name');
         const productPrice = parseFloat(productElement.getAttribute('data-price'));
-        const productImage = productElement.querySelector('img').src;
+        const productImage = productElement.querySelector('img')?.src || '';
+
+        if (!productId || !productName || !productPrice) {
+            console.error('Product data missing');
+            return;
+        }
 
         const product = {
             id: productId,
@@ -391,6 +275,7 @@ function autoResize(textarea) {
 // Initialize cart when page loads
 document.addEventListener('DOMContentLoaded', () => {
     new ShoppingCart();
+    new AuthUI();
 });
 
 // Authentication Management
@@ -442,9 +327,3 @@ function logout() {
     alert('You have been logged out');
     location.reload(); // Refresh page to update UI
 }
-
-// Initialize auth UI when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    new AuthUI();
-    /*for the carousel on the home page*/
-});
