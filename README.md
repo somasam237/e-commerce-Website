@@ -11,6 +11,14 @@ hOME PAGE
 <img width="1920" height="1128" alt="Capture d'écran 2025-07-17 125111" src="https://github.com/user-attachments/assets/abe66e81-38e8-4350-bd91-5486369f01ab" />
 
 with a Register and login page for users
+
 <img width="1920" height="1200" alt="Capture d'écran 2025-07-17 125027" src="https://github.com/user-attachments/assets/a1368b3e-eed3-4cac-bc4a-eb7a8c1dcdb9" />
-with a responsive design
+
+we also have a cart functionality on the webpage:
+
+<img width="1908" height="1011" alt="screenshot-1752751115092" src="https://github.com/user-attachments/assets/cd8147f1-cbd1-4a89-a127-44a6df553310" />
+
+
+with a responsive design:
+
 <img width="910" height="1008" alt="Capture d'écran 2025-07-17 124936" src="https://github.com/user-attachments/assets/385a1695-915a-4f3e-b415-e9bbe5fd18d0" />
