@@ -1,37 +1,52 @@
 const express = require('express');
-
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const config = require('../config');
 
-// to Register
+// Register
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        //i need a user variable
-        const user = new User({ username, email, password: await bcrypt.hash(password, 10) });
+        // Check if user already exists
+        const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+        if (existingUser) {
+            return res.status(400).json({ error: 'User already exists' });
+        }
+
+        const user = new User({ 
+            username, 
+            email, 
+            password: await bcrypt.hash(password, 10) 
+        });
         await user.save();
-        res.status(201).send('User registered');// this statement is Ai generated, i am not sure here got to check that again
+        res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).json({ error: error.message });
     }
 });
-/*
-// Connexion
+
+// Login
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
         if (!user || !await bcrypt.compare(password, user.password)) {
-            throw new Error('Invalid credentials');
+            return res.status(400).json({ error: 'Invalid credentials' });
         }
-        const token = jwt.sign({ id: user._id }, config.secret, { expiresIn: '1h' });
-        res.json({ token });
+        const token = jwt.sign({ id: user._id, username: user.username }, config.secret, { expiresIn: '1h' });
+        res.json({ 
+            token, 
+            user: { 
+                id: user._id, 
+                username: user.username, 
+                email: user.email 
+            } 
+        });
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).json({ error: error.message });
     }
-});*/
+});
 
 module.exports = router;
