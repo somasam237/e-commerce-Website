@@ -66,7 +66,7 @@ section{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:1.5rem  7% ; /*the first ont is the padding of the top and bottom and the second one fot left 
+    padding:1.5rem 7% ; /*the first ont is the padding of the top and bottom and the second one fot left 
     and right rem=route element*/
     position: fixed;
     top:0;
@@ -177,6 +177,7 @@ padding-left: 20px;
     margin-left: 30px;
     
 }
+ 
 .header .icons .cart-icon .quantity{
     background-color: #009688;
     border-radius: 50%;
@@ -243,51 +244,1707 @@ padding-left: 20px;
 }
 /*cart section*/
 .header .cart-items-container{
-    position: absolute;
-    top:100%;
-    right: -100%;
-    width:35rem;
-    background-color: #fff;
-    height: 80vh;
-    border: solid 1px black;
-    padding: 0.8rem;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ddd;
 }
-.header .cart-items-container .cart-item{
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.cart-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
-    margin: 2.5rem 0;
-   /* border: solid 1px black;*/
-    position: relative;
-    gap: 1rem;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
 
+.close-cart:hover {
+    background: #f0f0f0;
 }
-.header .cart-items-container  a{
+
+.listcart {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: white;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
+
+.cart-item:hover {
+    background: #f8f9fa;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.cart-item-price {
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.quantity-btn:hover {
+    background: #f5f5f5;
+    border-color: #aaa;
+}
+
+.quantity-btn.minus {
+    color: #dc3545;
+}
+
+.quantity-btn.plus {
+    color: #28a745;
+}
+
+.quantity {
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ff4444;
+    background: #ff4444;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.remove-btn:hover {
+    background: #cc0000;
+    border-color: #cc0000;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #f8f9fa;
+}
+
+.total-container {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.checkout-btn, .clear-cart {
     width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
 }
-.header .cart-items-container .cart-item img{
-    width:7rem;
+
+.checkout-btn {
+    background: #28a745;
+    color: white;
 }
-.header .cart-items-container .cart-item span{
-    position: absolute;
-    top:5%;
-    right: 4%;
-    font-size: 2rem;
-    color: var(--black);
+
+.checkout-btn:hover {
+    background: #218838;
+}
+
+.clear-cart {
+    background: #dc3545;
+    color: white;
+}
+
+.clear-cart:hover {
+    background: #c82333;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+.cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+/* Cart Icon Styling */
+.header .icons .cart-icon {
+    position: relative;
     cursor: pointer;
 }
-.header .cart-items-container .cart-item span:hover{
-    color: red;
+
+.header .icons .cart-icon .quantity {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+}
+
+html{
+    font-size: 62.5%; /*10px*/
+    overflow-x: hidden;
+}
+body{
+    background-color: var(--bg-color);
+}
+section{
+    padding: 2rem 7%;
+}
+/*here we have the button to command an order, the property of the button*/
+.btn{
+    display: inline-block;
+     text-align: center;
+    background-color: var(--main_color);
+    color: #fff;
+    font-size:1.7rem;
+    padding:0.8rem 2.5rem;
+    margin-top: 2rem;
+    cursor:pointer;
 
 }
-.header .cart-items-container .cart-item .content h3{
-    font-size: 1.5rem;
+.btn:hover{
+    letter-spacing: 0.2rem;
+
+}
+/* the title for the cake section*/
+.title{
+    text-shadow: 2px 2px 0 var(--card-color),  -2px -2px 0 var(--card-color) ,  -2px 2px 0 var(--card-color),  2px -2px 0 var(--card-color);
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding: 3.5rem 0 ;
+    font-size: 4rem;
+}
+.title span{
+    color: var(--main_color);
+}
+.header{
+    -webkit-backdrop-filter: blur(15px); /* assure la compatibilité avec safari */
+    backdrop-filter: blur(15px); 
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.5rem 7% ; /*the first ont is the padding of the top and bottom and the second one fot left 
+    and right rem=route element*/
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 16vh;
+    transition: 0.3s;
+    z-index: 1000;
+}
+.header .logo img{
+    height: 10rem;
+    border-radius: 50%;
+    width: 70px
+}
+.header .navbar{ 
+    position: sticky;
+    top: 0;
+    left:0;
+    font-weight:700;
+}
+.header .navbar ul{
+    display:flex;
+    list-style: none;
+}
+.header .navbar li  a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1a1a1a;
+    display: block;
+    font-size: 1.0rem;
+    margin: 0 1rem ;
+    transition: 0.3s ease;
+    
+}
+ 
+.header .navbar li a:hover {
+    color: var(--hover-color);
+    border-top: 0.3rem solid var(--hover-color);
+    border-bottom: 0.3rem solid var(--hover-color);
+    padding-top: 0.5 rem;
+    padding-bottom: 0.5 rem;
+    border-radius: 4px;
+}
+.header .navbar ul li .active{
+    color:#088178;
+}
+.header .navbar li a:hover .active::after{
+    content:"" ;
+    width: 30%;
+    height: 2px;
+    background:#088178 ;
+    position: absolute;
+    bottom: -4px;
+    left:20px;
+    color:#088178,;
+}
+.header .navbar .sousnav{
+    list-style: none;
+    display: none;
+    position: absolute; 
+    top: 100%;
+    left: 0;
+    width: max-content;
+    margin: 10px;
+    background-color: #009688;
+
+}
+.header .navbar .sousnav  li{
+   width: 10px;
+   padding-bottom: 20px;
+  
+
+
+}
+.header .navbar .sousnav li a{
+    gap: 1rem; 
+
+}
+.header .navbar .has-sousnav{
+    position: relative;
+}
+.header .navbar .has-sousnav:hover .sousnav{
+    display:block;
+}
+.header .navbar .has-sousnav:hover .sousnav ul li{
+     
+    
+}
+
+ 
+#mobile{
+    display: flex;
+    align-items: center;
+}
+#mobile i{
+color: var(--text-color);
+font-size: 24px;
+padding-left: 20px;
+}
+#close{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--text-color)
+}
+.header .icons{
+    display: flex;
+    margin-left: 30px;
+    
+}
+ 
+.header .icons .cart-icon .quantity{
+    background-color: #009688;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    
+    left: 80%;
+    padding: 3px 10px;
+}
+.header .icons div{
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    transition: 0.5s  ease;
+}
+
+.header #imgMenu{
+    width: 30px;
+}
+.menu{
+    display: none;
+}
+.header .icons div:hover{
+    color: black;
+    transform: translateY(-5px);
+}
+ 
+/*search box*/
+.header .search-from{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:95%;
+    right:-250px;/*i do this because i don't want the search box to be seen at the beginning but just when i click on the
+    search icon*/
+    width:25rem;
+    border : solid 1px black;
+    height: 3.5rem;
+    background-color: #fff;
+    
+}
+ 
+.header .search-from input{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
     color: var(--black);
-    padding-bottom: 0.8rem;
+    text-transform: none;
+
 }
-.header .cart-items-container .cart-item .content .price{
-    font-size: 1.3rem;
-    color: var(--nav-color); 
+.header .search-from label{
+    font-size:2rem;
+    color: var(--black);
+    padding-right: 1.3rem;
+    cursor:pointer;
+
 }
+.header .search-from label:hover{
+    color:var(--main_color);
+}
+/*cart section*/
+.header .cart-items-container{
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ddd;
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.cart-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.close-cart:hover {
+    background: #f0f0f0;
+}
+
+.listcart {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: white;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
+
+.cart-item:hover {
+    background: #f8f9fa;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.cart-item-price {
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.quantity-btn:hover {
+    background: #f5f5f5;
+    border-color: #aaa;
+}
+
+.quantity-btn.minus {
+    color: #dc3545;
+}
+
+.quantity-btn.plus {
+    color: #28a745;
+}
+
+.quantity {
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ff4444;
+    background: #ff4444;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.remove-btn:hover {
+    background: #cc0000;
+    border-color: #cc0000;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #f8f9fa;
+}
+
+.total-container {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.checkout-btn, .clear-cart {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.checkout-btn {
+    background: #28a745;
+    color: white;
+}
+
+.checkout-btn:hover {
+    background: #218838;
+}
+
+.clear-cart {
+    background: #dc3545;
+    color: white;
+}
+
+.clear-cart:hover {
+    background: #c82333;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+.cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+/* Cart Icon Styling */
+.header .icons .cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.header .icons .cart-icon .quantity {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+}
+
+html{
+    font-size: 62.5%; /*10px*/
+    overflow-x: hidden;
+}
+body{
+    background-color: var(--bg-color);
+}
+section{
+    padding: 2rem 7%;
+}
+/*here we have the button to command an order, the property of the button*/
+.btn{
+    display: inline-block;
+     text-align: center;
+    background-color: var(--main_color);
+    color: #fff;
+    font-size:1.7rem;
+    padding:0.8rem 2.5rem;
+    margin-top: 2rem;
+    cursor:pointer;
+
+}
+.btn:hover{
+    letter-spacing: 0.2rem;
+
+}
+/* the title for the cake section*/
+.title{
+    text-shadow: 2px 2px 0 var(--card-color),  -2px -2px 0 var(--card-color) ,  -2px 2px 0 var(--card-color),  2px -2px 0 var(--card-color);
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding: 3.5rem 0 ;
+    font-size: 4rem;
+}
+.title span{
+    color: var(--main_color);
+}
+.header{
+    -webkit-backdrop-filter: blur(15px); /* assure la compatibilité avec safari */
+    backdrop-filter: blur(15px); 
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.5rem 7% ; /*the first ont is the padding of the top and bottom and the second one fot left 
+    and right rem=route element*/
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 16vh;
+    transition: 0.3s;
+    z-index: 1000;
+}
+.header .logo img{
+    height: 10rem;
+    border-radius: 50%;
+    width: 70px
+}
+.header .navbar{ 
+    position: sticky;
+    top: 0;
+    left:0;
+    font-weight:700;
+}
+.header .navbar ul{
+    display:flex;
+    list-style: none;
+}
+.header .navbar li  a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1a1a1a;
+    display: block;
+    font-size: 1.0rem;
+    margin: 0 1rem ;
+    transition: 0.3s ease;
+    
+}
+ 
+.header .navbar li a:hover {
+    color: var(--hover-color);
+    border-top: 0.3rem solid var(--hover-color);
+    border-bottom: 0.3rem solid var(--hover-color);
+    padding-top: 0.5 rem;
+    padding-bottom: 0.5 rem;
+    border-radius: 4px;
+}
+.header .navbar ul li .active{
+    color:#088178;
+}
+.header .navbar li a:hover .active::after{
+    content:"" ;
+    width: 30%;
+    height: 2px;
+    background:#088178 ;
+    position: absolute;
+    bottom: -4px;
+    left:20px;
+    color:#088178,;
+}
+.header .navbar .sousnav{
+    list-style: none;
+    display: none;
+    position: absolute; 
+    top: 100%;
+    left: 0;
+    width: max-content;
+    margin: 10px;
+    background-color: #009688;
+
+}
+.header .navbar .sousnav  li{
+   width: 10px;
+   padding-bottom: 20px;
+  
+
+
+}
+.header .navbar .sousnav li a{
+    gap: 1rem; 
+
+}
+.header .navbar .has-sousnav{
+    position: relative;
+}
+.header .navbar .has-sousnav:hover .sousnav{
+    display:block;
+}
+.header .navbar .has-sousnav:hover .sousnav ul li{
+     
+    
+}
+
+ 
+#mobile{
+    display: flex;
+    align-items: center;
+}
+#mobile i{
+color: var(--text-color);
+font-size: 24px;
+padding-left: 20px;
+}
+#close{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--text-color)
+}
+.header .icons{
+    display: flex;
+    margin-left: 30px;
+    
+}
+ 
+.header .icons .cart-icon .quantity{
+    background-color: #009688;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    
+    left: 80%;
+    padding: 3px 10px;
+}
+.header .icons div{
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    transition: 0.5s  ease;
+}
+
+.header #imgMenu{
+    width: 30px;
+}
+.menu{
+    display: none;
+}
+.header .icons div:hover{
+    color: black;
+    transform: translateY(-5px);
+}
+ 
+/*search box*/
+.header .search-from{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:95%;
+    right:-250px;/*i do this because i don't want the search box to be seen at the beginning but just when i click on the
+    search icon*/
+    width:25rem;
+    border : solid 1px black;
+    height: 3.5rem;
+    background-color: #fff;
+    
+}
+ 
+.header .search-from input{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    text-transform: none;
+
+}
+.header .search-from label{
+    font-size:2rem;
+    color: var(--black);
+    padding-right: 1.3rem;
+    cursor:pointer;
+
+}
+.header .search-from label:hover{
+    color:var(--main_color);
+}
+/*cart section*/
+.header .cart-items-container{
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ddd;
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.cart-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.close-cart:hover {
+    background: #f0f0f0;
+}
+
+.listcart {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: white;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
+
+.cart-item:hover {
+    background: #f8f9fa;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.cart-item-price {
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.quantity-btn:hover {
+    background: #f5f5f5;
+    border-color: #aaa;
+}
+
+.quantity-btn.minus {
+    color: #dc3545;
+}
+
+.quantity-btn.plus {
+    color: #28a745;
+}
+
+.quantity {
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ff4444;
+    background: #ff4444;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.remove-btn:hover {
+    background: #cc0000;
+    border-color: #cc0000;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #f8f9fa;
+}
+
+.total-container {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.checkout-btn, .clear-cart {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.checkout-btn {
+    background: #28a745;
+    color: white;
+}
+
+.checkout-btn:hover {
+    background: #218838;
+}
+
+.clear-cart {
+    background: #dc3545;
+    color: white;
+}
+
+.clear-cart:hover {
+    background: #c82333;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+.cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+/* Cart Icon Styling */
+.header .icons .cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.header .icons .cart-icon .quantity {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+}
+
+html{
+    font-size: 62.5%; /*10px*/
+    overflow-x: hidden;
+}
+body{
+    background-color: var(--bg-color);
+}
+section{
+    padding: 2rem 7%;
+}
+/*here we have the button to command an order, the property of the button*/
+.btn{
+    display: inline-block;
+     text-align: center;
+    background-color: var(--main_color);
+    color: #fff;
+    font-size:1.7rem;
+    padding:0.8rem 2.5rem;
+    margin-top: 2rem;
+    cursor:pointer;
+
+}
+.btn:hover{
+    letter-spacing: 0.2rem;
+
+}
+/* the title for the cake section*/
+.title{
+    text-shadow: 2px 2px 0 var(--card-color),  -2px -2px 0 var(--card-color) ,  -2px 2px 0 var(--card-color),  2px -2px 0 var(--card-color);
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding: 3.5rem 0 ;
+    font-size: 4rem;
+}
+.title span{
+    color: var(--main_color);
+}
+.header{
+    -webkit-backdrop-filter: blur(15px); /* assure la compatibilité avec safari */
+    backdrop-filter: blur(15px); 
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.5rem 7% ; /*the first ont is the padding of the top and bottom and the second one fot left 
+    and right rem=route element*/
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 16vh;
+    transition: 0.3s;
+    z-index: 1000;
+}
+.header .logo img{
+    height: 10rem;
+    border-radius: 50%;
+    width: 70px
+}
+.header .navbar{ 
+    position: sticky;
+    top: 0;
+    left:0;
+    font-weight:700;
+}
+.header .navbar ul{
+    display:flex;
+    list-style: none;
+}
+.header .navbar li  a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1a1a1a;
+    display: block;
+    font-size: 1.0rem;
+    margin: 0 1rem ;
+    transition: 0.3s ease;
+    
+}
+ 
+.header .navbar li a:hover {
+    color: var(--hover-color);
+    border-top: 0.3rem solid var(--hover-color);
+    border-bottom: 0.3rem solid var(--hover-color);
+    padding-top: 0.5 rem;
+    padding-bottom: 0.5 rem;
+    border-radius: 4px;
+}
+.header .navbar ul li .active{
+    color:#088178;
+}
+.header .navbar li a:hover .active::after{
+    content:"" ;
+    width: 30%;
+    height: 2px;
+    background:#088178 ;
+    position: absolute;
+    bottom: -4px;
+    left:20px;
+    color:#088178,;
+}
+.header .navbar .sousnav{
+    list-style: none;
+    display: none;
+    position: absolute; 
+    top: 100%;
+    left: 0;
+    width: max-content;
+    margin: 10px;
+    background-color: #009688;
+
+}
+.header .navbar .sousnav  li{
+   width: 10px;
+   padding-bottom: 20px;
+  
+
+
+}
+.header .navbar .sousnav li a{
+    gap: 1rem; 
+
+}
+.header .navbar .has-sousnav{
+    position: relative;
+}
+.header .navbar .has-sousnav:hover .sousnav{
+    display:block;
+}
+.header .navbar .has-sousnav:hover .sousnav ul li{
+     
+    
+}
+
+ 
+#mobile{
+    display: flex;
+    align-items: center;
+}
+#mobile i{
+color: var(--text-color);
+font-size: 24px;
+padding-left: 20px;
+}
+#close{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--text-color)
+}
+.header .icons{
+    display: flex;
+    margin-left: 30px;
+    
+}
+ 
+.header .icons .cart-icon .quantity{
+    background-color: #009688;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    
+    left: 80%;
+    padding: 3px 10px;
+}
+.header .icons div{
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    transition: 0.5s  ease;
+}
+
+.header #imgMenu{
+    width: 30px;
+}
+.menu{
+    display: none;
+}
+.header .icons div:hover{
+    color: black;
+    transform: translateY(-5px);
+}
+ 
+/*search box*/
+.header .search-from{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:95%;
+    right:-250px;/*i do this because i don't want the search box to be seen at the beginning but just when i click on the
+    search icon*/
+    width:25rem;
+    border : solid 1px black;
+    height: 3.5rem;
+    background-color: #fff;
+    
+}
+ 
+.header .search-from input{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    text-transform: none;
+
+}
+.header .search-from label{
+    font-size:2rem;
+    color: var(--black);
+    padding-right: 1.3rem;
+    cursor:pointer;
+
+}
+.header .search-from label:hover{
+    color:var(--main_color);
+}
+/*cart section*/
+.header .cart-items-container{
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ddd;
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.cart-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.close-cart:hover {
+    background: #f0f0f0;
+}
+
+.listcart {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: white;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
+
+.cart-item:hover {
+    background: #f8f9fa;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.cart-item-price {
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.quantity-btn:hover {
+    background: #f5f5f5;
+    border-color: #aaa;
+}
+
+.quantity-btn.minus {
+    color: #dc3545;
+}
+
+.quantity-btn.plus {
+    color: #28a745;
+}
+
+.quantity {
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ff4444;
+    background: #ff4444;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.remove-btn:hover {
+    background: #cc0000;
+    border-color: #cc0000;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #f8f9fa;
+}
+
+.total-container {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.checkout-btn, .clear-cart {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.checkout-btn {
+    background: #28a745;
+    color: white;
+}
+
+.checkout-btn:hover {
+    background: #218838;
+}
+
+.clear-cart {
+    background: #dc3545;
+    color: white;
+}
+
+.clear-cart:hover {
+    background: #c82333;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+.cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+/* Cart Icon Styling */
+.header .icons .cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.header .icons .cart-icon .quantity {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+}
+
 /*Home sectiom*/
 /*.home{
     display: flex;
@@ -312,6 +1969,12 @@ padding-left: 20px;
     
      
 }
+@media screen and (max-width:1040px){
+    .home .media-icons{
+        right: 15px;
+    }
+
+}
 @media screen and (max-width:733px) {
     .carousel{
         width: 100%;
@@ -335,7 +1998,7 @@ padding-left: 20px;
         position: absolute;
         inset: 0 0 0 0;
         aspect-ratio: 16 / 9;
-        overflow-x: auto;
+        overflow-x:hidden /*auto*/;
         scroll-snap-type: X mandatory;
         scroll-behavior: smooth;
         box-shadow: 0 1.5rem 3rem -0.75rem hsla(0,0%,0%, 0.25);
@@ -349,7 +2012,7 @@ padding-left: 20px;
     position: absolute;
     inset: 0 0 0 0;
     aspect-ratio: 16 / 9;
-    overflow-x: auto;
+    overflow-x: auto/*auto*/;
     scroll-snap-type: X mandatory;
     scroll-behavior: smooth;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0,0%,0%, 0.25);
@@ -358,7 +2021,7 @@ padding-left: 20px;
 .carousel .list .item{
     scroll-snap-align: start;
     object-fit:cover; 
-   flex: 1 0 100%;
+    flex: 1 0 100%;
    
 }
  
@@ -385,10 +2048,21 @@ padding-left: 20px;
 } 
 .carousel .list .item .content #name{
     font-weight: bold;
-    size: 50px;2,130px);
+    font-size: 50px;
     grid-template-rows: 40px;
     gap: 5px;
     margin-top: 20px;
+
+}
+.carousel .list .item .content #name span{
+    font-size: 1.2em;
+    font-weight: 600;
+
+}
+.carousel .list .item .content #desc{
+    margin-bottom: 65px;
+
+
 
 }
 .carousel .list .item .content button{
@@ -397,6 +2071,25 @@ padding-left: 20px;
     letter-spacing: 4px;
 
 }
+.home .media-icons{
+    z-index: 888;
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px  ;
+    size: 150px ;         
+}
+.home .media-icons a{
+    color: #fff;
+    font-size: 1.6em;
+
+}
+.home .media-icons  a:not(:last-child){
+    margin-bottom: 20px;
+}
+.home .media-icons a:hover{
+    transform: scale(1.3);}
  
 
 /*fleches*/
@@ -557,6 +2250,8 @@ padding-left: 20px;
 }
 .banner .content h3{
     color: goldenrod;
+    display: inline-block;
+    left: 40%;
 
 }
 
@@ -738,25 +2433,203 @@ footer .wave#wave4{
     bottom:20px;
     animation: animatewave_1 3s linear infinite;
 }
-@keyframes animatewave{
-    0%{
-        background-position-x:1000px ;
-    }
-    100%{
-        background-position-x:0px ;
-    }
-}
-@keyframes animatewave_1{
-    0%{
-        background-position-x:1000px ;
-    }
-    100%{
-        background-position-x:0px ;
-    }
+
+
+/************
+  In Footer
+*************/
+.footer {
+  padding-top: 10px;
+  font-family: "Poppins", sans-serif;
+  background-color: #121212;
 }
 
+.tag {
+  font-family: "Poppins", sans-serif;
+  font: size 20px;
+  line-height: 26px;
+  text-align: center;
+  color: #fff;
+  height: 78px;
+  margin: 5px auto 0px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.svg-inline--fa {
+  vertical-align: -0.200em;
+}
+.im{
+    width: 50%;
+    height: 50%; 
+    
+     float: left;
+}
+
+/************
+Contact Form In Footer
+*************/
+
+.display {
+  height: auto;
+  width: auto;
+  text-align: left;
+  color: #fff;
+  display: inline;
+  font-size: 25px;
+  font-weight: 200;
+  line-height: 22px;
+  border-bottom: 3px solid #bb86fc;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+form {
+  margin: 15px auto;
+  color: #000;
+}
 
 
+/*
+-------------------
+ Footer Form
+--------------------
+*/
+.footer{
+    padding: 20px;
+    background-color:pink ;
+    color: #fff;
+}
+
+.footer .form-header h6 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.footer form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer form input[type="text"],
+.footer form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.footer form input[type="submit"] {
+  background-color: #bb86fc;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.footer form #textarea{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none; /* Pour éviter que l'utilisateur change la taille manuellement */
+  overflow: hidden;
+  min-height: 80px;
+}
+.footer form #button{
+    cursor: pointer;
+
+}
+
+/* User Icon Dropdown */
+.user-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.user-icon {
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.user-icon:hover {
+    background-color: #f0f0f0;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.user-icon-container:hover .user-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.user-info span {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.logout-btn {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #cc0000;
+}
+
+.login-prompt {
+    padding: 10px;
+    text-align: center;
+}
+
+.login-prompt a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-prompt a:hover {
+    color: #007bff;
+} 
+ 
+ 
+ 
+ 
 
 @media screen and (max-width:770px){
     .logo{
@@ -825,4 +2698,3 @@ footer .wave#wave4{
 }
 
 /*characteristique*/
- 
